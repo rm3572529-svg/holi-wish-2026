@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Happy Holi 2026 — HD+ Color Blast Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@700&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+/* =====================================================
+   HOLI 2026 — HD+ COLOR BLAST CINEMATIC EDITION
+   Full Color. Festival Explosion. Premium. Smooth.
+   ===================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hot-pink:     #e8186d;
+  --saffron:      #f97316;
+  --golden:       #fbbf24;
+  --gold-glow:    #fde68a;
+  --purple:       #9333ea;
+  --cyan:         #06b6d4;
+  --green:        #22c55e;
+  --white:        #ffffff;
+  --glass-bg:     rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.15);
+  --ease-cinema:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce:  cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html, body {
+  width: 100%; min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Rajdhani', sans-serif;
+  cursor: none;
+  background: #080014;
+}
+
+/* =====================================================
+   CURSOR
+   ===================================================== */
+.cursor-dot {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--hot-pink); border-radius: 50%;
+  pointer-events: none; z-index: 99999;
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 14px var(--hot-pink), 0 0 28px rgba(232,24,109,0.6);
+  will-change: left, top;
+}
+.cursor-ring {
+  position: fixed; width: 40px; height: 40px;
+  border: 2px solid rgba(232,24,109,0.55); border-radius: 50%;
+  pointer-events: none; z-index: 99998;
+  transform: translate(-50%,-50%);
+  will-change: left, top;
+}
+
+/* =====================================================
+   MULTI-LAYER HD+ BACKGROUND ENGINE
+   ===================================================== */
+
+.bg-base {
+  position: fixed; inset: 0; z-index: 1;
+  background: linear-gradient(160deg, #0a001e 0%, #160035 20%, #230052 40%, #180040 60%, #0e0028 80%, #08001a 100%);
+}
+
+/* Breathing radial color clouds */
+.bg-clouds {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 70% at 20% 10%,  rgba(147,51,234,0.28)  0%, transparent 55%),
+    radial-gradient(ellipse 70% 80% at 80% 20%,  rgba(232,24,109,0.25)  0%, transparent 55%),
+    radial-gradient(ellipse 60% 70% at 10% 80%,  rgba(249,115,22,0.22)  0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 90% 85%,  rgba(6,182,212,0.18)   0%, transparent 55%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,  rgba(251,191,36,0.1)   0%, transparent 60%);
+  animation: cloudDrift 14s ease-in-out infinite alternate;
+}
+@keyframes cloudDrift {
+  0%   { opacity: 0.8;  filter: hue-rotate(0deg); }
+  33%  { opacity: 1;    filter: hue-rotate(18deg); }
+  66%  { opacity: 0.85; filter: hue-rotate(-9deg); }
+  100% { opacity: 1;    filter: hue-rotate(25deg); }
+}
+
+/* Moving rainbow overlay */
+.bg-rainbow {
+  position: fixed; inset: 0; z-index: 3; pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(239,68,68,0.08) 0%, rgba(249,115,22,0.08) 14%, rgba(251,191,36,0.08) 28%,
+    rgba(34,197,94,0.07) 42%, rgba(6,182,212,0.08) 57%, rgba(147,51,234,0.08) 71%,
+    rgba(232,24,109,0.08) 85%, rgba(239,68,68,0.08) 100%);
+  background-size: 300% 100%;
+  animation: rainbowDrift 10s linear infinite;
+}
+@keyframes rainbowDrift { 0%{background-position:0% 50%;} 100%{background-position:300% 50%;} }
+
+/* Center glow aura */
+.bg-aura {
+  position: fixed; left: 50%; top: 50%; z-index: 4; pointer-events: none;
+  width: 700px; height: 700px; transform: translate(-50%,-50%); border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,24,109,0.13) 0%, rgba(249,115,22,0.07) 35%, rgba(147,51,234,0.05) 60%, transparent 75%);
+  animation: auraBreath 6s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+@keyframes auraBreath {
+  0%   { transform: translate(-50%,-50%) scale(0.88);  opacity: 0.65; }
+  100% { transform: translate(-50%,-50%) scale(1.28);  opacity: 1; }
+}
+
+/* Animated vignette */
+.bg-vignette {
+  position: fixed; inset: 0; z-index: 5; pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 35%, rgba(5,0,18,0.75) 100%);
+  animation: vignettePulse 8s ease-in-out infinite alternate;
+}
+@keyframes vignettePulse { 0%{opacity:0.6;} 100%{opacity:1;} }
+
+/* Grain */
+.bg-grain {
+  position: fixed; inset: 0; z-index: 6; opacity: 0.022; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =====================================================
+   HD+ BORDER FRAME
+   ===================================================== */
+.border-frame {
+  position: fixed; inset: 0; z-index: 7; pointer-events: none;
+  border: 2.5px solid transparent;
+  background:
+    linear-gradient(#080014,#080014) padding-box,
+    linear-gradient(90deg, #e8186d, #f97316, #fbbf24, #22c55e, #06b6d4, #9333ea, #e8186d) border-box;
+  background-size: 100% 100%, 400% 100%;
+  animation: borderScroll 5s linear infinite;
+}
+@keyframes borderScroll { 0%{background-position:0% 0%, 0% 50%;} 100%{background-position:0% 0%, 400% 50%;} }
+
+.neon-corner {
+  position: fixed; z-index: 8; pointer-events: none; width: 50px; height: 50px;
+  animation: cornerShimmer 3s ease-in-out infinite alternate;
+}
+.neon-corner.tl { top:8px;    left:8px;   border-top: 3px solid rgba(232,24,109,0.9);  border-left:  3px solid rgba(232,24,109,0.9); }
+.neon-corner.tr { top:8px;    right:8px;  border-top: 3px solid rgba(251,191,36,0.9);  border-right: 3px solid rgba(251,191,36,0.9); animation-delay:0.75s; }
+.neon-corner.bl { bottom:8px; left:8px;   border-bottom:3px solid rgba(249,115,22,0.9); border-left: 3px solid rgba(249,115,22,0.9); animation-delay:1.5s; }
+.neon-corner.br { bottom:8px; right:8px;  border-bottom:3px solid rgba(147,51,234,0.9); border-right:3px solid rgba(147,51,234,0.9); animation-delay:2.25s; }
+@keyframes cornerShimmer { 0%{opacity:0.35;} 100%{opacity:1;} }
+
+.corner-glow {
+  position: fixed; width: 220px; height: 220px; z-index: 6; pointer-events: none;
+  border-radius: 50%; animation: cornerPulse 5s ease-in-out infinite alternate;
+}
+.corner-glow.tl { top:-70px;    left:-70px;   background:radial-gradient(circle,#9333ea,transparent 70%); }
+.corner-glow.tr { top:-70px;    right:-70px;  background:radial-gradient(circle,#e8186d,transparent 70%); animation-delay:1.5s; }
+.corner-glow.bl { bottom:-70px; left:-70px;   background:radial-gradient(circle,#f97316,transparent 70%); animation-delay:3s; }
+.corner-glow.br { bottom:-70px; right:-70px;  background:radial-gradient(circle,#06b6d4,transparent 70%); animation-delay:0.8s; }
+@keyframes cornerPulse { 0%{opacity:0.1;} 100%{opacity:0.28;} }
+
+/* Canvases */
+#drop-canvas     { position: fixed; inset: 0; z-index: 9;  pointer-events: none; }
+#particle-canvas { position: fixed; inset: 0; z-index: 10; pointer-events: none; }
+
+/* Screen flash */
+.screen-flash { position:fixed; inset:0; z-index:5000; pointer-events:none; opacity:0; background:rgba(255,180,255,0.1); }
+.screen-flash.flash { animation: flashAnim 0.4s ease-out forwards; }
+@keyframes flashAnim { 0%{opacity:1;} 100%{opacity:0;} }
+
+/* =====================================================
+   LAYOUT
+   ===================================================== */
+#app {
+  position: relative; z-index: 20; min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+
+/* =====================================================
+   SCENE 1 — INTRO
+   ===================================================== */
+#scene-intro {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; min-height: 100vh;
+  padding: 40px 20px; text-align: center; width: 100%;
+}
+
+.film-stamp {
+  font-size: 10px; font-weight: 600; letter-spacing: 7px;
+  color: rgba(251,191,36,0.55); text-transform: uppercase;
+  margin-bottom: 44px; opacity: 0;
+  animation: fadeUp 1s var(--ease-cinema) 0.4s forwards;
+}
+
+.title-happy {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(58px, 11vw, 110px);
+  color: var(--white); line-height: 0.9; display: block;
+  opacity: 0; animation: titleReveal 1.4s var(--ease-cinema) 0.9s forwards;
+  text-shadow: 0 0 50px rgba(232,24,109,0.7), 0 0 100px rgba(249,115,22,0.35);
+}
+
+.title-holi {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(90px, 21vw, 215px);
+  font-weight: 600; font-style: italic; line-height: 0.82; display: block;
+  background: linear-gradient(120deg, #fde68a 0%, #fbbf24 12%, #f97316 28%, #ef4444 44%, #e8186d 58%, #a855f7 76%, #06b6d4 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -3px; opacity: 0;
+  animation: titleReveal 1.5s var(--ease-cinema) 1.3s forwards, shimmerSweep 4s linear 3s infinite;
+  filter: drop-shadow(0 4px 32px rgba(232,24,109,0.55));
+}
+
+.title-year {
+  font-size: clamp(16px, 3vw, 30px); font-weight: 300;
+  letter-spacing: 16px; color: rgba(253,230,138,0.72); text-transform: uppercase;
+  opacity: 0; animation: fadeUp 1s var(--ease-cinema) 2s forwards; margin-top: 10px;
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(15px, 2.5vw, 22px); font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.55); letter-spacing: 4px; margin-top: 28px;
+  opacity: 0; animation: fadeUp 1s var(--ease-cinema) 2.4s forwards;
+}
+
+.title-divider {
+  width: 140px; height: 1.5px; margin: 30px auto;
+  background: linear-gradient(90deg, transparent, rgba(249,115,22,0.8), rgba(232,24,109,0.8), rgba(147,51,234,0.6), transparent);
+  opacity: 0; animation: fadeUp 1s var(--ease-cinema) 2.8s forwards;
+}
+
+/* Input */
+.input-section { width:100%; max-width:520px; margin-top:12px; opacity:0; animation:fadeUp 1.2s var(--ease-cinema) 3.1s forwards; }
+.input-label { font-size:11px; font-weight:700; letter-spacing:4px; color:rgba(253,230,138,0.65); text-transform:uppercase; display:block; margin-bottom:16px; }
+.glass-input-wrap {
+  position:relative; border-radius:18px; padding:2px;
+  background:linear-gradient(135deg, rgba(232,24,109,0.6), rgba(249,115,22,0.5), rgba(147,51,234,0.5));
+  transition:box-shadow 0.4s ease;
+  box-shadow:0 10px 40px rgba(232,24,109,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.glass-input-wrap:focus-within {
+  box-shadow:0 0 0 1px rgba(232,24,109,0.9), 0 10px 60px rgba(232,24,109,0.4), 0 0 70px rgba(249,115,22,0.2);
+}
+.glass-input {
+  width:100%; padding:22px 30px; background:rgba(8,2,22,0.82);
+  border:none; border-radius:16px; color:var(--white);
+  font-family:'Rajdhani',sans-serif; font-size:19px; font-weight:500; letter-spacing:1px;
+  outline:none; backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  transition:background 0.3s ease;
+}
+.glass-input::placeholder { color:rgba(255,255,255,0.3); font-style:italic; }
+.glass-input:focus { background:rgba(8,2,22,0.92); }
+
+/* =====================================================
+   HD+ BUTTON
+   ===================================================== */
+.btn-celebrate-border {
+  position:relative; width:100%; max-width:520px; margin-top:26px; padding:2.5px; border-radius:20px;
+  background:linear-gradient(135deg, #fde68a, #f97316, #e8186d, #9333ea, #06b6d4, #fde68a);
+  background-size:500% 500%;
+  opacity:0;
+  animation: fadeUp 1.2s var(--ease-cinema) 3.5s forwards, borderColorShift 4s linear 3.5s infinite;
+}
+@keyframes borderColorShift { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+
+.btn-celebrate {
+  position:relative; width:100%; padding:24px 44px;
+  border:none; border-radius:17px; cursor:none; overflow:hidden;
+  font-family:'Rajdhani',sans-serif; font-size:16px; font-weight:700;
+  letter-spacing:5px; text-transform:uppercase; color:white;
+  transition:transform 0.4s var(--ease-bounce), box-shadow 0.4s ease;
+  z-index:1;
+}
+.btn-celebrate::before {
+  content:''; position:absolute; inset:0; z-index:-2;
+  background:linear-gradient(120deg, #6b0845 0%, #b8145f 20%, #e8186d 40%, #f97316 60%, #fbbf24 80%, #e8186d 100%);
+  background-size:300% 300%;
+  animation:btnGradientFlow 3s ease infinite;
+}
+.btn-celebrate::after {
+  content:''; position:absolute; z-index:-1;
+  top:0; left:-110%; width:60%; height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform:skewX(-18deg);
+  animation:reflectionSweep 3.2s ease-in-out infinite;
+}
+@keyframes btnGradientFlow { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
+@keyframes reflectionSweep { 0%{left:-110%;} 35%,100%{left:170%;} }
+.btn-celebrate-inner { position:relative; z-index:2; display:flex; align-items:center; justify-content:center; gap:14px; }
+.btn-glow {
+  position:absolute; inset:0; border-radius:17px; z-index:-1;
+  background:radial-gradient(circle at 50% 50%, rgba(249,115,22,0.5), transparent 65%);
+  animation:btnGlowPulse 2.2s ease-in-out infinite;
+}
+@keyframes btnGlowPulse { 0%,100%{opacity:0.28;} 50%{opacity:0.78;} }
+.btn-celebrate:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 28px 70px rgba(232,24,109,0.55), 0 14px 35px rgba(249,115,22,0.35); }
+.btn-celebrate:active { transform:translateY(0) scale(0.97); }
+
+.ripple { position:absolute; border-radius:50%; pointer-events:none; background:rgba(255,255,255,0.38); animation:rippleOut 0.75s ease-out forwards; }
+@keyframes rippleOut { 0%{transform:scale(0);opacity:1;} 100%{transform:scale(4.5);opacity:0;} }
+
+/* =====================================================
+   SCENE 2 — VISHESH
+   ===================================================== */
+#scene-vishesh {
+  display:none; flex-direction:column; align-items:center;
+  justify-content:flex-start; min-height:100vh;
+  padding:64px 20px 48px; text-align:center; width:100%;
+  opacity:0; transition:opacity 1s var(--ease-cinema);
+}
+#scene-vishesh.visible { opacity:1; }
+
+.greeting-badge { font-size:10px; font-weight:700; letter-spacing:7px; color:rgba(251,191,36,0.65); text-transform:uppercase; margin-bottom:32px; opacity:0; }
+.greeting-happy { font-family:'Dancing Script',cursive; font-size:clamp(40px,8vw,80px); color:rgba(255,255,255,0.9); display:block; opacity:0; text-shadow:0 0 50px rgba(232,24,109,0.5); }
+.greeting-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(64px,16vw,155px);
+  font-weight:600; font-style:italic; line-height:0.83; display:block; opacity:0;
+  background:linear-gradient(120deg, #fde68a, #fbbf24, #f97316, #e8186d, #9333ea);
+  background-size:300% 300%;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  filter:drop-shadow(0 4px 24px rgba(232,24,109,0.4));
+  animation:shimmerSweep 4.5s linear 2s infinite;
+}
+
+.vishesh-divider {
+  width:220px; height:1.5px; margin:32px auto;
+  background:linear-gradient(90deg, transparent, rgba(249,115,22,0.6), rgba(232,24,109,0.9), rgba(147,51,234,0.6), transparent);
+  opacity:0; transform:scaleX(0);
+  transition:transform 1.1s var(--ease-cinema), opacity 0.6s ease;
+}
+.vishesh-divider.reveal { opacity:1; transform:scaleX(1); }
+
+.vishesh-message { max-width:760px; margin:0 auto 44px; }
+.vishesh-line {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(19px,3.2vw,30px); font-weight:400; font-style:italic;
+  color:rgba(255,255,255,0.82); line-height:2;
+  opacity:0; transform:translateY(24px);
+  transition:opacity 0.9s var(--ease-cinema), transform 0.9s var(--ease-cinema);
+  display:block; padding:4px 0;
+}
+.vishesh-line.reveal { opacity:1; transform:translateY(0); }
+.vishesh-line.highlight {
+  background:linear-gradient(120deg, #fde68a, #f97316, #e8186d, #9333ea);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  font-weight:600; font-size:clamp(20px,3.5vw,32px);
+}
+
+/* =====================================================
+   BUBBLE GAME
+   ===================================================== */
+#game-section {
+  width:100%; max-width:720px; margin:24px auto;
+  opacity:0; transform:translateY(30px);
+  transition:opacity 0.9s var(--ease-cinema), transform 0.9s var(--ease-cinema);
+}
+#game-section.reveal { opacity:1; transform:translateY(0); }
+
+.game-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; padding:0 6px; }
+.game-title { font-size:11px; letter-spacing:5px; color:rgba(255,255,255,0.35); text-transform:uppercase; }
+.game-score-display { font-family:'Cormorant Garamond',serif; font-size:24px; color:var(--golden); text-shadow:0 0 20px rgba(251,191,36,0.7); }
+
+#game-arena {
+  position:relative; width:100%; height:240px;
+  background:linear-gradient(180deg, rgba(15,0,40,0.6) 0%, rgba(30,0,60,0.4) 100%);
+  border-radius:24px; border:1px solid rgba(232,24,109,0.2);
+  overflow:hidden; backdrop-filter:blur(12px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.06), 0 4px 40px rgba(232,24,109,0.1);
+}
+
+.bubble {
+  position:absolute; border-radius:50%; cursor:pointer; will-change:transform,opacity;
+  animation:bubbleRise linear forwards;
+  box-shadow:inset -5px -5px 12px rgba(0,0,0,0.3), inset 5px 5px 12px rgba(255,255,255,0.25);
+}
+.bubble::after {
+  content:''; position:absolute;
+  top:15%; left:20%; width:32%; height:24%;
+  background:rgba(255,255,255,0.4); border-radius:50%; transform:rotate(-35deg);
+}
+@keyframes bubbleRise {
+  0%  { transform:translateY(110%) scale(0.4); opacity:0; }
+  8%  { opacity:1; transform:translateY(90%) scale(1); }
+  85% { opacity:1; }
+  100%{ transform:translateY(-120%) scale(0.8); opacity:0; }
+}
+
+.bubble-pop-ring {
+  position:fixed; border-radius:50%; pointer-events:none; z-index:6000;
+  animation:popRingExpand 0.55s ease-out forwards;
+}
+@keyframes popRingExpand {
+  0%  { transform:translate(-50%,-50%) scale(0.2); opacity:1; }
+  100%{ transform:translate(-50%,-50%) scale(3);   opacity:0; }
+}
+
+#game-end-msg {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(5,0,18,0.75); backdrop-filter:blur(10px);
+  border-radius:24px; opacity:0; pointer-events:none; transition:opacity 0.9s ease;
+}
+#game-end-msg.show { opacity:1; }
+#game-end-msg p {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(22px,4vw,34px); color:white; text-align:center; padding:24px;
+  text-shadow:0 0 30px rgba(232,24,109,0.9);
+}
+
+/* =====================================================
+   TAP COUNTER
+   ===================================================== */
+.tap-counter { position:fixed; top:28px; right:28px; z-index:200; display:none; flex-direction:column; align-items:center; gap:4px; }
+.tap-counter-num { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:300; color:var(--white); line-height:1; text-shadow:0 0 24px rgba(232,24,109,0.9); }
+.tap-counter-label { font-size:8px; letter-spacing:3px; color:rgba(255,255,255,0.4); text-transform:uppercase; }
+
+.celebration-msg { position:fixed; bottom:100px; left:50%; transform:translateX(-50%); text-align:center; z-index:100; opacity:0; transition:opacity 1.6s ease; pointer-events:none; width:90%; }
+.celebration-msg.visible { opacity:1; }
+.celebration-msg p { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(18px,3.5vw,30px); color:rgba(255,255,255,0.9); text-shadow:0 0 30px rgba(232,24,109,0.7); line-height:1.7; }
+
+/* =====================================================
+   SOCIAL SHARE
+   ===================================================== */
+.social-section { max-width:520px; width:100%; margin:24px auto 0; opacity:0; transform:translateY(32px); transition:opacity 0.8s var(--ease-cinema), transform 0.8s var(--ease-cinema); }
+.social-section.reveal { opacity:1; transform:translateY(0); }
+.social-label { font-size:10px; letter-spacing:6px; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-bottom:18px; }
+.social-buttons { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:14px; }
+.btn-social {
+  flex:1; min-width:145px; padding:18px 26px;
+  background:var(--glass-bg); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border); border-radius:16px;
+  color:white; font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  cursor:none; transition:all 0.4s var(--ease-cinema); position:relative; overflow:hidden;
+}
+.btn-social::before { content:''; position:absolute; inset:0; opacity:0; transition:opacity 0.3s ease; background:linear-gradient(135deg,rgba(232,24,109,0.35),rgba(249,115,22,0.25)); }
+.btn-social:hover::before { opacity:1; }
+.btn-social:hover { border-color:rgba(232,24,109,0.7); transform:translateY(-4px); box-shadow:0 14px 44px rgba(232,24,109,0.3); }
+.btn-caption { width:100%; margin-top:10px; padding:16px 30px; background:transparent; border:1px solid rgba(253,230,138,0.35); border-radius:14px; color:rgba(253,230,138,0.85); font-family:'Rajdhani',sans-serif; font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; cursor:none; transition:all 0.4s ease; }
+.btn-caption:hover { background:rgba(253,230,138,0.09); border-color:rgba(253,230,138,0.7); }
+
+/* =====================================================
+   MUSIC TOGGLE
+   ===================================================== */
+.music-toggle {
+  position:fixed; top:28px; left:28px; z-index:500;
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(255,255,255,0.07); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,0.14);
+  display:flex; align-items:center; justify-content:center;
+  cursor:none; transition:all 0.4s var(--ease-cinema);
+  box-shadow:0 8px 32px rgba(0,0,0,0.35);
+}
+.music-toggle:hover { background:rgba(232,24,109,0.18); border-color:rgba(232,24,109,0.5); transform:scale(1.12); }
+.music-toggle svg { width:20px; height:20px; fill:rgba(255,255,255,0.75); transition:fill 0.3s; }
+.music-toggle:hover svg { fill:white; }
+.music-bars { display:flex; align-items:flex-end; gap:2px; height:18px; }
+.music-bar { width:3px; background:rgba(255,255,255,0.75); border-radius:2px; animation:barDance 0.75s ease-in-out infinite alternate; }
+.music-bar:nth-child(1){ height:8px;  animation-delay:0s; }
+.music-bar:nth-child(2){ height:15px; animation-delay:0.15s; }
+.music-bar:nth-child(3){ height:10px; animation-delay:0.3s; }
+.music-bar:nth-child(4){ height:17px; animation-delay:0.1s; }
+@keyframes barDance { 0%{transform:scaleY(0.35);} 100%{transform:scaleY(1);} }
+.music-toggle.muted .music-bars { display:none; }
+.music-toggle.muted .mute-icon { display:block !important; }
+.music-toggle .mute-icon { display:none; }
+
+/* =====================================================
+   BURST DOM PARTICLES
+   ===================================================== */
+.color-burst { position:fixed; width:0; height:0; pointer-events:none; z-index:1000; transform:translate(-50%,-50%); }
+.burst-particle { position:absolute; border-radius:50%; animation:burstFly 0.9s ease-out forwards; }
+@keyframes burstFly {
+  0%  { transform:translate(0,0) scale(1.2); opacity:1; }
+  100%{ transform:translate(var(--tx),var(--ty)) scale(0.08); opacity:0; }
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+.cinema-footer { width:100%; padding:44px 20px 32px; margin-top:44px; border-top:1px solid rgba(255,255,255,0.07); text-align:center; opacity:0; transition:opacity 0.8s ease; }
+.cinema-footer.visible { opacity:1; }
+.footer-copy { font-size:11px; letter-spacing:2px; color:rgba(255,255,255,0.3); margin-bottom:18px; }
+.footer-links { display:flex; justify-content:center; gap:26px; margin-bottom:22px; flex-wrap:wrap; }
+.footer-link { font-size:10px; letter-spacing:2px; color:rgba(255,255,255,0.3); text-decoration:none; text-transform:uppercase; cursor:none; transition:color 0.3s ease; }
+.footer-link:hover { color:rgba(232,24,109,0.85); }
+.btn-youtube {
+  display:inline-flex; align-items:center; gap:10px; padding:14px 30px;
+  background:rgba(255,0,0,0.12); border:1px solid rgba(255,0,0,0.28); border-radius:50px;
+  color:rgba(255,255,255,0.7); font-family:'Rajdhani',sans-serif;
+  font-size:12px; font-weight:600; letter-spacing:2px; text-transform:uppercase;
+  text-decoration:none; cursor:none; transition:all 0.4s var(--ease-cinema); margin-bottom:22px;
+}
+.btn-youtube:hover { background:rgba(255,0,0,0.22); border-color:rgba(255,0,0,0.55); transform:translateY(-2px); box-shadow:0 8px 30px rgba(255,0,0,0.22); color:white; }
+.watermark {
+  display:inline-block; margin-top:14px; padding:10px 28px; border-radius:50px;
+  background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09);
+  font-size:10px; letter-spacing:3px; color:rgba(255,255,255,0.28);
+  text-transform:uppercase; font-family:'Rajdhani',sans-serif;
+  animation:watermarkPulse 5s ease-in-out infinite alternate;
+}
+@keyframes watermarkPulse { 0%{border-color:rgba(232,24,109,0.12);color:rgba(255,255,255,0.22);} 100%{border-color:rgba(249,115,22,0.25);color:rgba(255,255,255,0.38);} }
+
+/* Terms Modal */
+.modal-overlay {
+  position:fixed; inset:0; background:rgba(5,0,15,0.88);
+  backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  z-index:9000; display:flex; align-items:center; justify-content:center;
+  padding:20px; opacity:0; pointer-events:none; transition:opacity 0.5s ease;
+}
+.modal-overlay.open { opacity:1; pointer-events:all; }
+.modal-glass { max-width:560px; width:100%; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.13); border-radius:26px; padding:44px; backdrop-filter:blur(30px); box-shadow:0 40px 100px rgba(0,0,0,0.55); transform:translateY(30px) scale(0.97); transition:transform 0.5s var(--ease-cinema); }
+.modal-overlay.open .modal-glass { transform:translateY(0) scale(1); }
+.modal-title { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:300; color:white; margin-bottom:22px; font-style:italic; }
+.modal-body { font-size:13px; line-height:1.9; color:rgba(255,255,255,0.5); margin-bottom:32px; }
+.btn-modal-close { padding:15px 34px; background:rgba(232,24,109,0.22); border:1px solid rgba(232,24,109,0.45); border-radius:12px; color:white; font-family:'Rajdhani',sans-serif; font-size:12px; font-weight:600; letter-spacing:3px; text-transform:uppercase; cursor:none; transition:all 0.3s ease; }
+.btn-modal-close:hover { background:rgba(232,24,109,0.38); box-shadow:0 0 30px rgba(232,24,109,0.35); }
+
+/* Toast */
+.toast { position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(90px); background:rgba(255,255,255,0.07); backdrop-filter:blur(24px); border:1px solid rgba(255,255,255,0.16); border-radius:50px; padding:15px 30px; color:white; font-family:'Rajdhani',sans-serif; font-size:13px; letter-spacing:1px; z-index:8000; transition:transform 0.5s var(--ease-cinema), opacity 0.5s ease; opacity:0; white-space:nowrap; }
+.toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+
+/* =====================================================
+   KEYFRAMES
+   ===================================================== */
+@keyframes fadeUp     { 0%{opacity:0;transform:translateY(32px);}  100%{opacity:1;transform:translateY(0);} }
+@keyframes titleReveal{ 0%{opacity:0;transform:translateY(55px);}  100%{opacity:1;transform:translateY(0);} }
+@keyframes shimmerSweep{ 0%{background-position:220% center;} 100%{background-position:-220% center;} }
+
+/* Responsive */
+@media(max-width:640px){
+  .btn-celebrate { padding:20px 28px; font-size:14px; letter-spacing:3px; }
+  .social-buttons { flex-direction:column; }
+  .btn-social { flex:none; }
+  .music-toggle { top:18px; left:18px; width:44px; height:44px; }
+  .tap-counter { top:18px; right:18px; }
+  #game-arena { height:195px; }
+  .bg-aura { width:400px; height:400px; }
+  .title-holi { letter-spacing:-1px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor-dot"  id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- HD+ Background Layers -->
+<div class="bg-base"></div>
+<div class="bg-clouds"></div>
+<div class="bg-rainbow"></div>
+<div class="bg-aura" id="bgAura"></div>
+<div class="bg-vignette"></div>
+<div class="bg-grain"></div>
+
+<!-- Border Frame System -->
+<div class="border-frame"></div>
+<div class="neon-corner tl"></div>
+<div class="neon-corner tr"></div>
+<div class="neon-corner bl"></div>
+<div class="neon-corner br"></div>
+<div class="corner-glow tl"></div>
+<div class="corner-glow tr"></div>
+<div class="corner-glow bl"></div>
+<div class="corner-glow br"></div>
+
+<!-- Canvases -->
+<canvas id="drop-canvas"></canvas>
+<canvas id="particle-canvas"></canvas>
+
+<!-- Screen Flash -->
+<div class="screen-flash" id="screenFlash"></div>
+
+<!-- Music Toggle -->
+<button class="music-toggle" id="musicToggle" aria-label="Toggle Music">
+  <div class="music-bars">
+    <div class="music-bar"></div><div class="music-bar"></div>
+    <div class="music-bar"></div><div class="music-bar"></div>
+  </div>
+  <svg class="mute-icon" viewBox="0 0 24 24">
+    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+  </svg>
+</button>
+
+<!-- Tap Counter -->
+<div class="tap-counter" id="tapCounter">
+  <div class="tap-counter-num" id="tapCount">0</div>
+  <div class="tap-counter-label">Colors Burst</div>
+</div>
+
+<!-- Celebration -->
+<div class="celebration-msg" id="celebrationMsg">
+  <p>The Colors Never End. 🌈</p>
+  <p>Celebrate with Friends &amp; Family.</p>
+</div>
+
+<!-- Terms Modal -->
+<div class="modal-overlay" id="termsModal">
+  <div class="modal-glass">
+    <div class="modal-title">Terms &amp; Conditions</div>
+    <div class="modal-body">
+      This experience is created purely for celebratory and entertainment purposes during the festival of Holi 2026. All content, animations, and interactions are original creative work.<br><br>
+      By using this experience, you agree that:<br><br>
+      • This is a non-commercial digital celebration.<br>
+      • No personal data is collected or stored.<br>
+      • Music files must be provided by the deployer.<br>
+      • Content sharing is at the user's discretion.
+    </div>
+    <button class="btn-modal-close" id="closeModal">I Understand</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- SCENE 1 — INTRO -->
+  <section id="scene-intro">
+    <div class="film-stamp">HD+ Color Blast Edition — Holi 2026 — Cinematic Festival Experience</div>
+    <div>
+      <span class="title-happy">Happy</span>
+      <span class="title-holi">Holi</span>
+      <span class="title-year">2 0 2 6</span>
+    </div>
+    <p class="subtitle">Festival of Colors &amp; Joy</p>
+    <div class="title-divider"></div>
+
+    <div class="input-section">
+      <label class="input-label" for="userName">Enter Your Name to Begin</label>
+      <div class="glass-input-wrap">
+        <input class="glass-input" type="text" id="userName"
+          placeholder="Your name, dear soul..." maxlength="40" autocomplete="off"/>
+      </div>
+    </div>
+
+    <div class="btn-celebrate-border">
+      <button class="btn-celebrate" id="btnCelebrate">
+        <div class="btn-glow"></div>
+        <div class="btn-celebrate-inner">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Celebrate &amp; Send Vishesh</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- SCENE 2 — VISHESH -->
+  <section id="scene-vishesh">
+    <div class="greeting-badge" id="greetingBadge">— A Special Holi Vishesh —</div>
+    <div>
+      <span class="greeting-happy" id="greetingHappy">Happy Holi,</span>
+      <span class="greeting-name"  id="greetingName">Name</span>
+    </div>
+    <div class="vishesh-divider" id="visheshDivider"></div>
+
+    <div class="vishesh-message">
+      <span class="vishesh-line highlight" data-delay="0">May every color paint your life with happiness,</span>
+      <span class="vishesh-line"           data-delay="220">may prosperity follow your every step,</span>
+      <span class="vishesh-line highlight" data-delay="440">may love surround you like vibrant gulal,</span>
+      <span class="vishesh-line"           data-delay="660">may strength guide you through every challenge,</span>
+      <span class="vishesh-line highlight" data-delay="880">may laughter echo in every celebration,</span>
+      <span class="vishesh-line"           data-delay="1100">may the colors of joy never fade from your life,</span>
+      <span class="vishesh-line highlight" data-delay="1320">may every sunrise bring new reasons to smile,</span>
+      <span class="vishesh-line"           data-delay="1540">and may your world bloom forever —</span>
+      <span class="vishesh-line highlight" data-delay="1760">with friends and family by your side.</span>
+      <span class="vishesh-line" data-delay="2100"
+        style="margin-top:18px;font-size:clamp(13px,1.8vw,16px);color:rgba(255,255,255,0.38);font-style:italic;">
+        Tap anywhere to burst colors! · Pop the bubbles below!
+      </span>
+    </div>
+
+    <!-- Bubble Game -->
+    <div id="game-section">
+      <div class="game-header">
+        <span class="game-title">🫧 Holi Color Bubbles</span>
+        <span class="game-score-display">✨ <span id="gameScore">0</span></span>
+      </div>
+      <div id="game-arena">
+        <div id="game-end-msg">
+          <p>The Colors Never End. 🌈<br>
+          <span style="font-size:0.58em;opacity:0.7;">Final Score: <span id="finalScore">0</span></span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Share -->
+    <div class="social-section" id="socialSection">
+      <div class="social-label">Spread the Colors</div>
+      <div class="social-buttons">
+        <button class="btn-social" id="shareBtn">Share with Friends</button>
+        <button class="btn-social" id="shareFamilyBtn">Share with Family</button>
+      </div>
+      <button class="btn-caption" id="captionBtn">↓ Download Instagram Caption</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cinema-footer" id="footer">
+      <div class="footer-copy">© 2026 Holi HD+ Color Blast Edition. All Rights Reserved.</div>
+      <div class="footer-links">
+        <a href="#" class="footer-link" id="termsLink">Terms &amp; Conditions</a>
+        <span style="color:rgba(255,255,255,0.15)">·</span>
+        <span class="footer-link">Copyright Notice</span>
+      </div>
+      <a href="https://youtube.com/@rajdeveloperyt?si=EnugQmd5fptABBZ1" class="btn-youtube" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#ff0000"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.54 3.6 12 3.6 12 3.6s-7.54 0-9.38.46A3.02 3.02 0 0 0 .5 6.2C0 8.06 0 12 0 12s0 3.94.5 5.8a3.02 3.02 0 0 0 2.12 2.14C4.46 20.4 12 20.4 12 20.4s7.54 0 9.38-.46a3.02 3.02 0 0 0 2.12-2.14C24 15.94 24 12 24 12s0-3.94-.5-5.8zM9.6 15.6V8.4l6.4 3.6-6.4 3.6z"/></svg>
+        Subscribe to the Developer
+      </a>
+      <div><div class="watermark">Crafted with Passion by Raj Developer</div></div>
+    </footer>
+  </section>
+
+</div>
+
+<!-- Audio -->
+<audio id="bgAudio" loop preload="auto">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+'use strict';
+
+/* =====================================================
+   CURSOR
+   ===================================================== */
+const cursorDot  = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top  = mouseY + 'px';
+});
+(function cursorLoop() {
+  ringX += (mouseX - ringX) * 0.11;
+  ringY += (mouseY - ringY) * 0.11;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top  = ringY + 'px';
+  requestAnimationFrame(cursorLoop);
+})();
+
+/* =====================================================
+   AUDIO — AUTO START ON LOAD
+   ===================================================== */
+const audio       = document.getElementById('bgAudio');
+const musicToggle = document.getElementById('musicToggle');
+let isMuted = false;
+
+function fadeAudio(from, to, dur) {
+  const steps = 60, dt = dur / steps, ds = (to - from) / steps;
+  let cur = from; audio.volume = cur;
+  const iv = setInterval(() => {
+    cur += ds;
+    if ((ds > 0 && cur >= to) || (ds < 0 && cur <= to)) { audio.volume = to; clearInterval(iv); }
+    else audio.volume = Math.max(0, Math.min(1, cur));
+  }, dt);
+}
+
+// Try autoplay; fallback to first-interaction trigger
+(function tryAutoPlay() {
+  audio.volume = 0;
+  audio.play().then(() => {
+    fadeAudio(0, 0.52, 4000);
+  }).catch(() => {
+    const startOnce = () => {
+      audio.play().then(() => fadeAudio(0, 0.52, 2500)).catch(()=>{});
+      document.removeEventListener('click',      startOnce);
+      document.removeEventListener('touchstart', startOnce);
+    };
+    document.addEventListener('click',      startOnce, { once: true });
+    document.addEventListener('touchstart', startOnce, { once: true, passive: true });
+  });
+})();
+
+musicToggle.addEventListener('click', () => {
+  isMuted = !isMuted;
+  if (isMuted) {
+    fadeAudio(audio.volume, 0, 500);
+    musicToggle.classList.add('muted');
+  } else {
+    audio.play().catch(()=>{});
+    fadeAudio(0, 0.52, 900);
+    musicToggle.classList.remove('muted');
+  }
+});
+
+/* =====================================================
+   CANVAS SETUP
+   ===================================================== */
+const pCanvas = document.getElementById('particle-canvas');
+const pCtx    = pCanvas.getContext('2d');
+const dCanvas = document.getElementById('drop-canvas');
+const dCtx    = dCanvas.getContext('2d');
+
+function resizeCanvases() {
+  pCanvas.width = dCanvas.width  = window.innerWidth;
+  pCanvas.height= dCanvas.height = window.innerHeight;
+}
+resizeCanvases();
+window.addEventListener('resize', resizeCanvases);
+
+/* =====================================================
+   FLOAT PARTICLE ENGINE (Gulal Dust)
+   ===================================================== */
+const HOLI_COLS = [
+  'rgba(232,24,109,',  'rgba(249,115,22,', 'rgba(251,191,36,',
+  'rgba(147,51,234,',  'rgba(6,182,212,',  'rgba(239,68,68,',
+  'rgba(168,85,247,',  'rgba(34,197,94,',  'rgba(236,72,153,'
+];
+let particles = [];
+const MAX_FLOAT = 50;
+
+class FloatParticle {
+  constructor(initY) {
+    this.reset(initY !== undefined);
+    if (initY !== undefined) this.y = Math.random() * pCanvas.height;
+  }
+  reset(placed) {
+    this.x = Math.random() * pCanvas.width;
+    this.y = placed ? Math.random() * pCanvas.height : pCanvas.height + 20;
+    this.size = Math.random() * 4 + 1.5;
+    this.color = HOLI_COLS[Math.floor(Math.random() * HOLI_COLS.length)];
+    this.speedY = -(Math.random() * 0.5 + 0.2);
+    this.speedX = (Math.random() - 0.5) * 0.4;
+    this.opacity = Math.random() * 0.5 + 0.12;
+    this.maxOpacity = this.opacity;
+    this.angle = Math.random() * Math.PI * 2;
+    this.angleSpd = (Math.random() - 0.5) * 0.022;
+    this.life = 1;
+    this.decay = Math.random() * 0.001 + 0.0003;
+  }
+  update() {
+    this.x += this.speedX + Math.sin(this.angle) * 0.28;
+    this.y += this.speedY;
+    this.angle += this.angleSpd;
+    this.life -= this.decay;
+    this.opacity = this.maxOpacity * this.life;
+    if (this.life <= 0 || this.y < -20) this.reset(false);
+  }
+  draw() {
+    const g = pCtx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size * 3.2);
+    g.addColorStop(0, this.color + this.opacity + ')');
+    g.addColorStop(1, this.color + '0)');
+    pCtx.beginPath(); pCtx.fillStyle = g;
+    pCtx.arc(this.x, this.y, this.size * 3.2, 0, Math.PI * 2); pCtx.fill();
+  }
+}
+
+for (let i = 0; i < MAX_FLOAT; i++) particles.push(new FloatParticle(true));
+
+(function animParticles() {
+  pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+  for (const p of particles) { p.update(); p.draw(); }
+  requestAnimationFrame(animParticles);
+})();
+
+/* =====================================================
+   WATER DROP COLOR SYSTEM
+   ===================================================== */
+const DROP_COLORS = [
+  'rgba(232,24,109,', 'rgba(249,115,22,', 'rgba(34,197,94,',
+  'rgba(6,182,212,',  'rgba(147,51,234,', 'rgba(251,191,36,',
+  'rgba(239,68,68,',  'rgba(236,72,153,'
+];
+
+class ColorDrop {
+  constructor(scattered) {
+    this.reset();
+    if (scattered) {
+      this.y = Math.random() * dCanvas.height * 0.6;
+      // Some start mid-splash
+      if (Math.random() > 0.6) {
+        this.splashed  = true;
+        this.splashX   = this.x;
+        this.splashY   = this.y + Math.random() * dCanvas.height * 0.3;
+        this.splashR   = Math.random() * 20;
+        this.splashFade= Math.random() * 0.7 + 0.2;
+      }
+    }
+  }
+  reset() {
+    this.x = Math.random() * dCanvas.width;
+    this.y = -14;
+    this.speedY= 2.6 + Math.random() * 3.2;
+    this.size  = 5 + Math.random() * 8;
+    this.color = DROP_COLORS[Math.floor(Math.random() * DROP_COLORS.length)];
+    this.opacity  = 0.7 + Math.random() * 0.3;
+    this.splashed = false;
+    this.splashR   = 0;
+    this.splashMax = 42 + Math.random() * 55;
+    this.splashFade= 1;
+    this.splashX = 0; this.splashY = 0;
+  }
+  update() {
+    if (!this.splashed) {
+      this.y += this.speedY;
+      const hitY = dCanvas.height * 0.55 + Math.random() * dCanvas.height * 0.35;
+      if (this.y >= hitY) {
+        this.splashed = true;
+        this.splashX  = this.x;
+        this.splashY  = this.y;
+      }
+    } else {
+      this.splashR    += 2.0;
+      this.splashFade -= 0.028;
+      if (this.splashFade <= 0) this.reset();
+    }
+  }
+  draw() {
+    if (!this.splashed) {
+      dCtx.save();
+      dCtx.translate(this.x, this.y);
+      dCtx.beginPath();
+      dCtx.ellipse(0, 0, this.size * 0.5, this.size, 0, 0, Math.PI * 2);
+      dCtx.fillStyle = this.color + this.opacity + ')';
+      dCtx.fill();
+      dCtx.restore();
+    } else if (this.splashFade > 0) {
+      const alpha = this.splashFade * 0.5;
+      dCtx.save();
+      // Outer ring
+      dCtx.beginPath();
+      dCtx.arc(this.splashX, this.splashY, this.splashR, 0, Math.PI * 2);
+      dCtx.strokeStyle = this.color + alpha + ')';
+      dCtx.lineWidth = 2.5;
+      dCtx.stroke();
+      // Inner glow fade
+      const ia = Math.max(0, this.splashFade - 0.45) * 0.28;
+      if (ia > 0) {
+        const g = dCtx.createRadialGradient(this.splashX, this.splashY, 0, this.splashX, this.splashY, this.splashR * 0.82);
+        g.addColorStop(0, this.color + ia + ')');
+        g.addColorStop(1, this.color + '0)');
+        dCtx.beginPath();
+        dCtx.arc(this.splashX, this.splashY, this.splashR * 0.82, 0, Math.PI * 2);
+        dCtx.fillStyle = g;
+        dCtx.fill();
+      }
+      dCtx.restore();
+    }
+  }
+}
+
+const MAX_DROPS = 12;
+const drops = [];
+for (let i = 0; i < MAX_DROPS; i++) drops.push(new ColorDrop(true));
+
+(function animDrops() {
+  dCtx.clearRect(0, 0, dCanvas.width, dCanvas.height);
+  for (const d of drops) { d.update(); d.draw(); }
+  requestAnimationFrame(animDrops);
+})();
+
+/* =====================================================
+   COLOR BURST (DOM)
+   ===================================================== */
+const BURST_COLS = ['#e8186d','#f97316','#fbbf24','#9333ea','#06b6d4','#ef4444','#a855f7','#22c55e','#fde68a','#ec4899','#84cc16'];
+
+function createColorBurst(x, y, scale) {
+  scale = scale || 1;
+  const count = Math.min(24, Math.floor((9 + Math.random() * 9) * scale));
+  const frag  = document.createDocumentFragment();
+  for (let i = 0; i < count; i++) {
+    const el    = document.createElement('div');
+    el.className = 'burst-particle';
+    const angle = (i / count) * 360 + Math.random() * 28;
+    const dist  = (38 + Math.random() * 80) * scale;
+    const rad   = angle * Math.PI / 180;
+    const tx    = Math.cos(rad) * dist, ty = Math.sin(rad) * dist;
+    const size  = (6 + Math.random() * 14) * scale;
+    const color = BURST_COLS[Math.floor(Math.random() * BURST_COLS.length)];
+    el.style.cssText = `--tx:${tx}px;--ty:${ty}px;width:${size}px;height:${size}px;background:${color};top:0;left:0;animation-duration:${0.65 + Math.random() * 0.55}s;animation-delay:${Math.random() * 0.07}s;`;
+    const wrap = document.createElement('div');
+    wrap.className = 'color-burst';
+    wrap.style.cssText = `left:${x}px;top:${y}px;`;
+    wrap.appendChild(el);
+    document.body.appendChild(wrap);
+    setTimeout(() => wrap.remove(), 1500);
+  }
+  // Extra float particles
+  for (let i = 0; i < 5; i++) {
+    if (particles.length >= 130) break;
+    const p = new FloatParticle(false);
+    p.x = x + (Math.random() - 0.5) * 70;
+    p.y = y; p.speedY = -(Math.random() * 2.2 + 0.9);
+    p.speedX = (Math.random() - 0.5) * 1.8;
+    p.size = 3.5 + Math.random() * 5.5;
+    p.opacity = 0.75; p.maxOpacity = 0.75; p.decay = 0.007;
+    particles.push(p);
+  }
+}
+
+/* Auto blast every 4–6 seconds */
+function scheduleAutoBlast() {
+  setTimeout(() => {
+    const x = 90 + Math.random() * (window.innerWidth - 180);
+    const y = 80 + Math.random() * (window.innerHeight * 0.65);
+    createColorBurst(x, y, 0.9);
+    scheduleAutoBlast();
+  }, 4000 + Math.random() * 2000);
+}
+scheduleAutoBlast();
+
+/* =====================================================
+   SCENE LOGIC
+   ===================================================== */
+const sceneIntro    = document.getElementById('scene-intro');
+const sceneVishesh  = document.getElementById('scene-vishesh');
+const btnCelebrate  = document.getElementById('btnCelebrate');
+const userNameInput = document.getElementById('userName');
+const greetingName  = document.getElementById('greetingName');
+const greetingHappy = document.getElementById('greetingHappy');
+const greetingBadge = document.getElementById('greetingBadge');
+const screenFlash   = document.getElementById('screenFlash');
+const tapCounter    = document.getElementById('tapCounter');
+const tapCountEl    = document.getElementById('tapCount');
+const celebrationMsg= document.getElementById('celebrationMsg');
+
+let tapCount = 0, isVisheshScene = false;
+
+btnCelebrate.addEventListener('click', function(e) {
+  const rect = this.getBoundingClientRect();
+  const rip  = document.createElement('div');
+  rip.className = 'ripple';
+  const sz = Math.max(rect.width, rect.height);
+  rip.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX-rect.left-sz/2}px;top:${e.clientY-rect.top-sz/2}px;`;
+  this.appendChild(rip);
+  setTimeout(() => rip.remove(), 900);
+
+  const name = userNameInput.value.trim();
+  if (!name) {
+    userNameInput.style.boxShadow = '0 0 0 2.5px rgba(232,24,109,0.9)';
+    setTimeout(() => { userNameInput.style.boxShadow = ''; }, 1600);
+    showToast('Please enter your name to celebrate! 🌸');
+    return;
+  }
+  launchVishesh(name);
+});
+
+function launchVishesh(name) {
+  screenFlash.classList.add('flash');
+  setTimeout(() => screenFlash.classList.remove('flash'), 400);
+
+  sceneIntro.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+  sceneIntro.style.opacity    = '0';
+  sceneIntro.style.transform  = 'scale(0.94)';
+
+  // Triple burst entrance
+  createColorBurst(window.innerWidth / 2, window.innerHeight / 2, 1.8);
+  setTimeout(() => createColorBurst(window.innerWidth * 0.25, window.innerHeight * 0.4, 1.2), 180);
+  setTimeout(() => createColorBurst(window.innerWidth * 0.75, window.innerHeight * 0.4, 1.2), 360);
+
+  setTimeout(() => {
+    sceneIntro.style.display = 'none';
+    greetingName.textContent = name;
+    sceneVishesh.style.display = 'flex';
+    requestAnimationFrame(() => requestAnimationFrame(() => sceneVishesh.classList.add('visible')));
+
+    isVisheshScene = true;
+    tapCounter.style.display = 'flex';
+
+    setTimeout(() => { greetingBadge.style.animation = 'fadeUp 1s var(--ease-cinema) forwards'; greetingBadge.style.opacity = '0'; }, 100);
+    setTimeout(() => { greetingHappy.style.animation = 'fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) forwards'; }, 320);
+    setTimeout(() => { greetingName.style.animation  = 'titleReveal 1.5s cubic-bezier(0.16,1,0.3,1) forwards'; }, 640);
+    setTimeout(() => { document.getElementById('visheshDivider').classList.add('reveal'); }, 1500);
+
+    document.querySelectorAll('.vishesh-line').forEach(line => {
+      const delay = parseInt(line.dataset.delay || 0) + 1900;
+      setTimeout(() => line.classList.add('reveal'), delay);
+    });
+
+    setTimeout(() => {
+      document.getElementById('game-section').classList.add('reveal');
+      startBubbleGame();
+    }, 3200);
+
+    setTimeout(() => {
+      document.getElementById('socialSection').classList.add('reveal');
+      document.getElementById('footer').classList.add('visible');
+    }, 4400);
+
+    setTimeout(() => celebrationMsg.classList.add('visible'), 22000);
+  }, 900);
+}
+
+/* Click / touch burst */
+document.addEventListener('click', e => {
+  if (!isVisheshScene) return;
+  if (e.target.closest('button') || e.target.closest('a') || e.target.closest('input') || e.target.closest('#game-arena')) return;
+  tapCount++; tapCountEl.textContent = tapCount;
+  createColorBurst(e.clientX, e.clientY, 1.1);
+  screenFlash.classList.remove('flash');
+  void screenFlash.offsetHeight;
+  screenFlash.classList.add('flash');
+  setTimeout(() => screenFlash.classList.remove('flash'), 400);
+});
+
+document.addEventListener('touchend', e => {
+  if (!isVisheshScene) return;
+  if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#game-arena')) return;
+  const t = e.changedTouches[0];
+  tapCount++; tapCountEl.textContent = tapCount;
+  createColorBurst(t.clientX, t.clientY, 1.1);
+}, { passive: true });
+
+/* Parallax aura */
+const bgAura = document.getElementById('bgAura');
+document.addEventListener('mousemove', e => {
+  const dx = (e.clientX - window.innerWidth  / 2) / window.innerWidth;
+  const dy = (e.clientY - window.innerHeight / 2) / window.innerHeight;
+  bgAura.style.transform = `translate(calc(-50% + ${dx * 26}px), calc(-50% + ${dy * 26}px))`;
+});
+
+/* =====================================================
+   HD+ BUBBLE MINI-GAME (Max 8)
+   ===================================================== */
+const BUBBLE_COLORS = [
+  '#e8186d','#f97316','#9333ea','#06b6d4','#22c55e',
+  '#fbbf24','#ef4444','#a855f7','#ec4899','#84cc16'
+];
+
+let gameScore = 0, gameActive = false, bubbles = [];
+let bubbleInterval = null;
+
+function startBubbleGame() {
+  gameActive = true; gameScore = 0; bubbles = [];
+  document.getElementById('gameScore').textContent = '0';
+  bubbleInterval = setInterval(spawnBubble, 1550);
+  setTimeout(() => {
+    gameActive = false;
+    clearInterval(bubbleInterval);
+    bubbles.forEach(b => b.el && b.el.parentNode && b.el.remove());
+    bubbles = [];
+    document.getElementById('finalScore').textContent = gameScore;
+    document.getElementById('game-end-msg').classList.add('show');
+  }, 25000);
+}
+
+function spawnBubble() {
+  const arena = document.getElementById('game-arena');
+  if (!arena || !gameActive) return;
+  if (bubbles.filter(b => b.active).length >= 8) return;
+
+  const color = BUBBLE_COLORS[Math.floor(Math.random() * BUBBLE_COLORS.length)];
+  const size  = 46 + Math.random() * 34;
+  const left  = 5 + Math.random() * 84;
+  const dur   = 3.8 + Math.random() * 2.8;
+
+  const el = document.createElement('div');
+  el.className = 'bubble';
+  el.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:0;cursor:pointer;background:radial-gradient(circle at 32% 28%, ${color}ee, ${color}66);animation-duration:${dur}s;`;
+
+  const obj = { el, active: true };
+  bubbles.push(obj);
+  arena.appendChild(el);
+
+  const pop = (cx, cy) => {
+    if (!obj.active) return;
+    obj.active = false;
+    el.remove(); bubbles = bubbles.filter(b => b !== obj);
+    gameScore++;
+    document.getElementById('gameScore').textContent = gameScore;
+    createColorBurst(cx, cy, 0.7);
+    const ring = document.createElement('div');
+    ring.className = 'bubble-pop-ring';
+    ring.style.cssText = `width:${size}px;height:${size}px;left:${cx}px;top:${cy}px;border:3px solid ${color};`;
+    document.body.appendChild(ring);
+    setTimeout(() => ring.remove(), 650);
+  };
+
+  el.addEventListener('click',      e => { e.stopPropagation(); pop(e.clientX, e.clientY); });
+  el.addEventListener('touchstart', e => { e.stopPropagation(); const t = e.touches[0]; pop(t.clientX, t.clientY); }, { passive: true });
+  el.addEventListener('animationend', () => { obj.active = false; el.remove(); bubbles = bubbles.filter(b => b !== obj); });
+}
+
+/* =====================================================
+   SOCIAL SHARE
+   ===================================================== */
+const shareMsg       = `🌈 Sending you a special Holi Vishesh!\nCelebrate colors, happiness and togetherness.\n✨ Happy Holi 2026! ✨`;
+const shareMsgFamily = `🌸 Wishing my family a vibrant Holi!\nMay every color bring joy and love.\n✨ Happy Holi 2026! ✨`;
+const instaCaption   = `🎨 Celebrating colors, love and togetherness this Holi.\nSending special Vishesh to my friends & family.\n.\n.\n#HappyHoli2026 #FestivalOfColors #CelebrateTogether #HoliVibes #ColorOfLife #Holi2026`;
+
+document.getElementById('shareBtn').addEventListener('click', () => {
+  if (navigator.share) navigator.share({ title: 'Happy Holi 2026', text: shareMsg }).catch(()=>{});
+  else navigator.clipboard.writeText(shareMsg).then(() => showToast('Message copied! Share the colors 🌈'));
+});
+document.getElementById('shareFamilyBtn').addEventListener('click', () => {
+  if (navigator.share) navigator.share({ title: 'Happy Holi 2026', text: shareMsgFamily }).catch(()=>{});
+  else navigator.clipboard.writeText(shareMsgFamily).then(() => showToast('Family message copied! 🌸'));
+});
+document.getElementById('captionBtn').addEventListener('click', () => {
+  const blob = new Blob([instaCaption], { type: 'text/plain' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'Holi2026_Instagram_Caption.txt'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('Caption downloaded! ✨');
+});
+
+/* Terms Modal */
+const termsModal = document.getElementById('termsModal');
+document.getElementById('termsLink').addEventListener('click', e => { e.preventDefault(); termsModal.classList.add('open'); });
+document.getElementById('closeModal').addEventListener('click', () => termsModal.classList.remove('open'));
+termsModal.addEventListener('click', e => { if (e.target === termsModal) termsModal.classList.remove('open'); });
+
+/* Toast */
+const toastEl = document.getElementById('toast');
+let toastTO;
+function showToast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastTO);
+  toastTO = setTimeout(() => toastEl.classList.remove('show'), 3200);
+}
+
+/* Enter key */
+userNameInput.addEventListener('keydown', e => { if (e.key === 'Enter') btnCelebrate.click(); });
+</script>
+</body>
+</html>
